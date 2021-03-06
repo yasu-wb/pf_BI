@@ -29,6 +29,7 @@
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
 | item_id       | integer | null: false, foreign_key: true |
+| date          | date    | null: false                    |
 
 ### Association
 - has_many :items
@@ -50,7 +51,8 @@
 | Comment        | string     |                                |
 
 ### Association
--has_one :notification
+- belongs_to :item
+- has_one :notification
 
 ## Notificationsテーブル
 | Column      | Type       | Options                        |
@@ -61,4 +63,5 @@
 | checked     | boolean    | default: false, null: false    |
 
 ### Association
--belongs_to :
+- belongs_to :analysis
+- belongs_to :user
