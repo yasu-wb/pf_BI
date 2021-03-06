@@ -1,24 +1,64 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| last_name          | string  | null: false               |
+| first_name         | string  | null: false               |
+| ID                 | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| In_charge1         | integer |                           |
+| In_charge2         | integer |                           |
+| In_charge3         | integer |                           |
 
-Things you may want to cover:
+### Association
+- has_many :notifications
 
-* Ruby version
+## itemsテーブル
+| Column        | Type    | Options                   |
+| ------------- | ------- | ------------------------- |
+| INcode        | integer | null: false, unique: true |
+| name          | string  | null: false               |
+| main_category | integer | null: false               |
+| sub_category  | integer | null: false               |
 
-* System dependencies
+### Association
+- has_many :analyses
 
-* Configuration
+## listsテーブル
+| Column        | Type    | Options                        |
+| ------------- | ------- | ------------------------------ |
+| item_id       | integer | null: false, foreign_key: true |
 
-* Database creation
+### Association
+- has_many :items
 
-* Database initialization
+## Analysesテーブル
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| item_id        | references | null: false, foreign_key: true |
+| DateTime       | time       | null: false                    |
+| TankNo         | string     | null: false                    |
+| Density        | float      | null: false                    |
+| Alcohol        | float      | null: false                    |
+| Extract        | float      | null: false                    |
+| Acid_degree    | float      |                                |
+| Amino_acid     | float      |                                |
+| Color          | float      |                                |
+| Turbidity      | float      |                                |
+| Sulfurous_acid | float      |                                |
+| Comment        | string     |                                |
 
-* How to run the test suite
+### Association
+-has_one :notification
 
-* Services (job queues, cache servers, search engines, etc.)
+## Notificationsテーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| analysis_id | references | null: false, foreign_key: true |
+| user_id     | references | null: false, foreign_key: true |
+| action      | string     | null: false                    |
+| checked     | boolean    | default: false, null: false    |
 
-* Deployment instructions
-
-* ...
+### Association
+-belongs_to :
