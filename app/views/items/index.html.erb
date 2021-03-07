@@ -3,12 +3,14 @@
     <%# ログインしているときは以下を表示する %>
       <div class="greeting">
         こんにちは、
-        <%= link_to "#", "#", class: :greeting__link %>
+        <%= link_to current_user.last_name, edit_user_registration_path, class: :greeting__link %>
         さん
       </div>
     <%# // ログインしているときは上記を表示する %>
-    <div class="#">
-      aiueo
+    <div class="dashboard">
+      <div class="registration-card">
+        製品登録<>
+      </div>
     </div>
   </div>
 </main>

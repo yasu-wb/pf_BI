@@ -33,17 +33,17 @@
 
   <div class="field">
     <%= f.label :in_charge1, "担当１" %><br />
-    <%= f.text_field :last_name %>
+    <%= f.collection_select(:in_charge1, Category.all, :id, :name, {}, {class:"category-select"}) %>
   </div>
 
   <div class="field">
     <%= f.label :in_charge2, "担当２" %><br />
-    <%= f.text_field :first_name %>
+    <%= f.collection_select(:in_charge2, Category.all, :id, :name, {}, {class:"category-select"}) %>
   </div>
 
   <div class="field">
     <%= f.label :in_charge3, "担当３" %><br />
-    <%= f.text_field :last_name %>
+    <%= f.collection_select(:in_charge3, Category.all, :id, :name, {}, {class:"category-select"}) %>
   </div>
 
   <div class="actions">
