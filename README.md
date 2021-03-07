@@ -5,7 +5,7 @@
 | ------------------ | ------- | ------------------------- |
 | last_name          | string  | null: false               |
 | first_name         | string  | null: false               |
-| ID                 | string  | null: false, unique: true |
+| number_id          | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
 | In_charge1         | integer |                           |
 | In_charge2         | integer |                           |
@@ -17,7 +17,7 @@
 ## itemsテーブル
 | Column        | Type    | Options                   |
 | ------------- | ------- | ------------------------- |
-| INcode        | integer | null: false, unique: true |
+| incode        | integer | null: false, unique: true |
 | name          | string  | null: false               |
 | main_category | integer | null: false               |
 | sub_category  | integer | null: false               |
@@ -38,17 +38,17 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | item_id        | references | null: false, foreign_key: true |
-| DateTime       | time       | null: false                    |
-| TankNo         | string     | null: false                    |
-| Density        | float      | null: false                    |
-| Alcohol        | float      | null: false                    |
-| Extract        | float      | null: false                    |
-| Acid_degree    | float      |                                |
-| Amino_acid     | float      |                                |
-| Color          | float      |                                |
-| Turbidity      | float      |                                |
-| Sulfurous_acid | float      |                                |
-| Comment        | string     |                                |
+| dateTime       | time       | null: false                    |
+| tankNo         | string     | null: false                    |
+| density        | float      | null: false                    |
+| alcohol        | float      | null: false                    |
+| extract        | float      | null: false                    |
+| acid_degree    | float      |                                |
+| amino_acid     | float      |                                |
+| color          | float      |                                |
+| turbidity      | float      |                                |
+| sulfurous_acid | float      |                                |
+| comment        | string     |                                |
 
 ### Association
 - belongs_to :item
