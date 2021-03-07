@@ -1,0 +1,32 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">新製品登録</h2>
+        <%= form_with(model: @item, local: true) do |f| %>
+          <div class="field">
+            <%= f.label :incode, "INコード" %><br />
+            <%= f.text_field :incode %>
+          </div>
+
+          <div class="field">
+            <%= f.label :name, "製品名" %><br />
+            <%= f.text_field :name %>
+          </div>
+
+          <div class="field">
+            <%= f.label :main_category, "主カテゴリー" %><br />
+            <%= f.collection_select(:main_category, MainCategory.all, :id, :name, {}, {class: "category_select"}) %>
+          </div>
+          
+          <div class="field">
+            <%= f.label :sub_category, "副カテゴリー" %><br />
+            <%= f.collection_select(:sub_category, Category.all, :id, :name, {}, {class: "category_select"}) %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "登録", class: :form__btn %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
