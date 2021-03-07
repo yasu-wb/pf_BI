@@ -18,6 +18,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:incode, :name, :main_category, :sub_category)
+    params.require(:item).permit(:incode, :name, :main_category, :sub_category)
   end
 end
