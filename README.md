@@ -5,7 +5,7 @@
 | ------------------ | ------- | ------------------------- |
 | last_name          | string  | null: false               |
 | first_name         | string  | null: false               |
-| ID                 | string  | null: false, unique: true |
+| number_id          | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
 | In_charge1         | integer |                           |
 | In_charge2         | integer |                           |
