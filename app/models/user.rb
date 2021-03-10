@@ -17,15 +17,6 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions.to_h).where(['lower(number_id) = :value OR lower(email) = :value', { value: login.downcase }]).first
-    elsif conditions.has_key?(:number_id) || conditions.has_key?(:email)
-      where(conditions.to_h).first
-    end
-  end
-
   def email_required?
     false
   end
