@@ -14,6 +14,11 @@ class User < ApplicationRecord
     validates :in_charge1, :in_charge2, :in_charge3, numericality: { other_than: 0, message: 'Select' }
   end
 
+  validates :number_id, numericality: { only_integer: true, message: 'Half-width number' }
+
+  VALID_PASSWORD_REGEX = /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/.freeze
+  validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'Include both letters and numbers' }
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
