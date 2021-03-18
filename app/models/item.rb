@@ -5,4 +5,6 @@ class Item < ApplicationRecord
     validates :main_category, :sub_category, numericality: { other_than: 0, message: 'Select' }
   end
   validates :incode, numericality: { only_integer: true, message: 'Half-width number' }
+  has_many :item_lists
+  has_many :lists, through: :item_lists
 end
