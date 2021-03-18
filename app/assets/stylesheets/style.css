@@ -54,7 +54,16 @@ h2 {
 .actions {
   margin: 10px 10px;
 }
+
+.dashboard {
+  display: flex;
+}
 .card_img {
   width: 400px;
   height: 400px;
+}
+
+/* list */
+.today-list {
+  display: flex;
 }

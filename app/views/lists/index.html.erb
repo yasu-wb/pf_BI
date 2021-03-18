@@ -1,0 +1,46 @@
+<h1>
+  <div class="Incode">
+    <%= form_with(model: @list, local: true) do |f| %>
+      <%= f.label :incode, "INコード" %><br />
+      <%= f.text_field :incode %>
+      <%= f.submit "登録", class: :form__btn %>
+    <% end %>
+  </div>
+
+</h1>
+  <h2>
+    <div class = "today-list">
+      <div class = "washu-bar">和酒
+        <% @lists.each do |list| %>
+        <% list.item_lists.each do |item_list| %>
+          <% if item_list.item.main_category == 1 %>
+            <%= item_list.item.incode %>
+            <%= item_list.item.name %>
+          <% end %>
+        <% end %>
+      <% end %>
+      </div>
+      
+      <div class = "yoshu-bar">洋酒
+      <% @lists.each do |list| %>
+        <% list.item_lists.each do |item_list| %>
+          <% if item_list.item.main_category == 2 %>
+            <%= item_list.item.incode %>
+            <%= item_list.item.name %>
+          <% end %>
+        <% end %>
+      <% end %>
+      </div>
+
+      <div class = "genshu-bar">原酒
+      <% @lists.each do |list| %>
+        <% list.item_lists.each do |item_list| %>
+          <% if item_list.item.main_category == 3 %>
+            <%= item_list.item.incode %>
+            <%= item_list.item.name %>
+          <% end %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  <h2>
