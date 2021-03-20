@@ -35,20 +35,23 @@
 - has_many :items
 
 ## Analysesテーブル
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| item_id        | references | null: false, foreign_key: true |
-| dateTime       | time       | null: false                    |
-| tankNo         | string     | null: false                    |
-| density        | float      | null: false                    |
-| alcohol        | float      | null: false                    |
-| extract        | float      | null: false                    |
-| acid_degree    | float      |                                |
-| amino_acid     | float      |                                |
-| color          | float      |                                |
-| turbidity      | float      |                                |
-| sulfurous_acid | float      |                                |
-| comment        | string     |                                |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| item_id              | references | null: false, foreign_key: true |
+| list_id              | references | null: false, foreign_key: true |
+| dateTime             | time       | null: false                    |
+| tankno               | string     | null: false                    |
+| density              | float      | null: false                    |
+| alcohol              | float      | null: false                    |
+| extract              | float      | null: false                    |
+| acid_degree          | float      |                                |
+| amino_acid           | float      |                                |
+| color                | float      |                                |
+| nacl                 | float      |                                |
+| turbidity            | float      |                                |
+| free_sulfurous_acid  | float      |                                |
+| total_sulfurous_acid | float      |                                |
+| comment              | text       |                                |
 
 ### Association
 - belongs_to :item
