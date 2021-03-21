@@ -1,0 +1,79 @@
+<h1>分析シート</h1>
+<h2>一覧</h2>
+  <div class="analysis-cards">
+      <% @lists.each do |list| %>
+      <div class="analysis-card">
+        <%= form_with(model: @analysis, local: true) do |f| %>
+          <% list.item_lists.each do |item_list| %>
+            <div class="incode">
+              <span>INコード</span>
+              <%= item_list.item.incode %>
+            </div>
+            <div class="name">
+              <span>製品名</span>
+              <%= item_list.item.name %>
+            </div>
+            <div class="analysis">
+
+              <div class="tank-no.">
+                <span>タンクNo.</span>
+                <%= f.text_field :tank_no, class:"analysis-input" %>
+              </div>
+              <div class="density">
+                <span>比重</span>
+                <%= f.text_field :density, class:"analysis-input" %>
+              </div>
+              <div class="alcohol">
+                <span>Alcohol</span>
+                <%= f.text_field :alcohol, class:"analysis-input" %>
+              </div>
+              <div class="extract">
+                <span>エキス</span>
+                <%= f.text_field :extract, class:"analysis-input" %>
+              </div>
+              <div class="acid_defree">
+                <span>酸</span>
+                <%= f.text_field :acid_degree, class:"analysis-input" %>
+              </div>
+              <div class="amino_acid">
+                <span>アミノ酸</span>
+                <%= f.text_field :amino_acid, class:"analysis-input" %>
+              </div>
+              <div class="color">
+                <span>OD430nm</span>
+                <%= f.text_field :color, class:"analysis-input" %>
+              </div>
+              <div class="nacl">
+                <span>塩分</span>
+                <%= f.text_field :nacl, class:"analysis-input" %>
+              </div>
+              <div class="turbidity">
+                <span>濁度</span>
+                <%= f.text_field :turbidity, class:"analysis-input" %>
+              </div>
+              <div class="free-sulfurous_acid">
+                <span>亜硫酸Free</span>
+                <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
+              </div>
+              <div class="total-sulfurous_acid">
+                <span>亜硫酸Total</span>
+                <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
+              </div>
+              <div class="comment">
+                <span>備考</span>
+                <%= f.text_area :comment, class:"analysis-input" %>
+              </div>
+              <div class="foreign_key_id">
+                <%= f.hidden_field :item_id, value: item_list.item.id %>
+                <%= f.hidden_field :list_id, value: item_list.list.id %>
+              </div>
+              <div class="sell-btn-contents">
+                <%= f.submit "登録" , class:"sell-btn" %>
+              </div>
+            
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+  </div>

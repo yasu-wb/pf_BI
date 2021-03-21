@@ -3,7 +3,6 @@ class CreateAnalyses < ActiveRecord::Migration[6.0]
     create_table :analyses do |t|
       t.references :list,        null: false, foreign_key: true
       t.references :item,        null: false, foreign_key: true
-      t.time       :datetime,    null: false
       t.string     :tank_no,     null: false
       t.float      :density,     null: false
       t.float      :alcohol,     null: false

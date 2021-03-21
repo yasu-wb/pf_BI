@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_051656) do
   create_table "analyses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "list_id", null: false
     t.bigint "item_id", null: false
-    t.time "datetime", null: false
     t.string "tank_no", null: false
     t.float "density", null: false
     t.float "alcohol", null: false

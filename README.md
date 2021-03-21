@@ -24,15 +24,28 @@
 
 ### Association
 - has_many :analyses
+- has_many :item_lists
+- ham_many :lists, through: :item_lists
+
+## item_listsテーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| item_id       | references | null: false, foreign_key: true |
+| list_id       | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :item
+- belongs_to :list
 
 ## listsテーブル
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
-| item_id       | integer | null: false, foreign_key: true |
+| incode        | integer | null: false                    |
 | date          | date    | null: false                    |
 
 ### Association
-- has_many :items
+- has_many :item_lists
+- has_many :items, through: :item_lists
 
 ## Analysesテーブル
 | Column               | Type       | Options                        |
@@ -55,6 +68,7 @@
 
 ### Association
 - belongs_to :item
+- belongs_to :list
 - has_one :notification
 
 ## Notificationsテーブル

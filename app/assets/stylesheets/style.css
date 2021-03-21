@@ -67,3 +67,8 @@ h2 {
 .today-list {
   display: flex;
 }
+
+/* analysis */
+.analysis-cards {
+  display: flex;
+}
