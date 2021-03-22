@@ -1,79 +1,142 @@
 <h1>分析シート</h1>
 <h2>一覧</h2>
   <div class="analysis-cards">
-      <% @lists.each do |list| %>
-      <div class="analysis-card">
-        <%= form_with(model: @analysis, local: true) do |f| %>
-          <% list.item_lists.each do |item_list| %>
-            <div class="incode">
-              <span>INコード</span>
-              <%= item_list.item.incode %>
-            </div>
-            <div class="name">
-              <span>製品名</span>
-              <%= item_list.item.name %>
-            </div>
-            <div class="analysis">
-
-              <div class="tank-no.">
-                <span>タンクNo.</span>
-                <%= f.text_field :tank_no, class:"analysis-input" %>
+    <% @lists.each do |list| %>
+      <% if list.analyses.blank? %>
+        <% list.item_lists.each do |item_list| %>
+          <div class="analysis-card">
+              <div class="incode">
+                <span>INコード</span>
+                <%= item_list.item.incode %>
               </div>
-              <div class="density">
-                <span>比重</span>
-                <%= f.text_field :density, class:"analysis-input" %>
+              <div class="name">
+                <span>製品名</span>
+                <%= item_list.item.name %>
               </div>
-              <div class="alcohol">
-                <span>Alcohol</span>
-                <%= f.text_field :alcohol, class:"analysis-input" %>
+              <div class="analysis">
+                <%= form_with(model: @analysis, local: true) do |f| %>
+                  <div class="tank-no.">
+                    <span>タンクNo.</span>
+                    <%= f.text_field :tank_no, class:"analysis-input" %>
+                  </div>
+                  <div class="density">
+                    <span>比重</span>
+                    <%= f.text_field :density, class:"analysis-input" %>
+                  </div>
+                  <div class="alcohol">
+                    <span>Alcohol</span>
+                    <%= f.text_field :alcohol, class:"analysis-input" %>
+                  </div>
+                  <div class="extract">
+                    <span>エキス</span>
+                    <%= f.text_field :extract, class:"analysis-input" %>
+                  </div>
+                  <div class="acid_defree">
+                    <span>酸</span>
+                    <%= f.text_field :acid_degree, class:"analysis-input" %>
+                  </div>
+                  <div class="amino_acid">
+                    <span>アミノ酸</span>
+                    <%= f.text_field :amino_acid, class:"analysis-input" %>
+                  </div>
+                  <div class="color">
+                    <span>OD430nm</span>
+                    <%= f.text_field :color, class:"analysis-input" %>
+                  </div>
+                  <div class="nacl">
+                    <span>塩分</span>
+                    <%= f.text_field :nacl, class:"analysis-input" %>
+                  </div>
+                  <div class="turbidity">
+                    <span>濁度</span>
+                    <%= f.text_field :turbidity, class:"analysis-input" %>
+                  </div>
+                  <div class="free-sulfurous_acid">
+                    <span>亜硫酸Free</span>
+                    <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
+                  </div>
+                  <div class="total-sulfurous_acid">
+                    <span>亜硫酸Total</span>
+                    <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
+                  </div>
+                  <div class="comment">
+                    <span>備考</span>
+                    <%= f.text_area :comment, class:"analysis-input" %>
+                  </div>
+                  <div class="foreign_key_id">
+                    <%= f.hidden_field :item_id, value: item_list.item.id %>
+                    <%= f.hidden_field :list_id, value: item_list.list.id %>
+                  </div>
+                  <div class="sell-btn-contents">
+                    <%= f.submit "登録" , class:"sell-btn" %>
+                  </div>
+                <% end %>
               </div>
-              <div class="extract">
-                <span>エキス</span>
-                <%= f.text_field :extract, class:"analysis-input" %>
-              </div>
-              <div class="acid_defree">
-                <span>酸</span>
-                <%= f.text_field :acid_degree, class:"analysis-input" %>
-              </div>
-              <div class="amino_acid">
-                <span>アミノ酸</span>
-                <%= f.text_field :amino_acid, class:"analysis-input" %>
-              </div>
-              <div class="color">
-                <span>OD430nm</span>
-                <%= f.text_field :color, class:"analysis-input" %>
-              </div>
-              <div class="nacl">
-                <span>塩分</span>
-                <%= f.text_field :nacl, class:"analysis-input" %>
-              </div>
-              <div class="turbidity">
-                <span>濁度</span>
-                <%= f.text_field :turbidity, class:"analysis-input" %>
-              </div>
-              <div class="free-sulfurous_acid">
-                <span>亜硫酸Free</span>
-                <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
-              </div>
-              <div class="total-sulfurous_acid">
-                <span>亜硫酸Total</span>
-                <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
-              </div>
-              <div class="comment">
-                <span>備考</span>
-                <%= f.text_area :comment, class:"analysis-input" %>
-              </div>
-              <div class="foreign_key_id">
-                <%= f.hidden_field :item_id, value: item_list.item.id %>
-                <%= f.hidden_field :list_id, value: item_list.list.id %>
-              </div>
-              <div class="sell-btn-contents">
-                <%= f.submit "登録" , class:"sell-btn" %>
-              </div>
-            
-            </div>
-          <% end %>
+          </div>
         <% end %>
-      </div>
+      <% else %>
+        <% list.analyses.each do |analysis| %>
+          <div class="analysis-card">
+              <div class="incode">
+                <span>INコード</span>
+                <%= analysis.item.incode %>
+              </div>
+              <div class="name">
+                <span>製品名</span>
+                <%= analysis.item.name %>
+              </div>
+              <div class="analysis">
+                <div class="tank-no.">
+                  <span>タンクNo.</span>
+                  <%= analysis.tank_no %>
+                </div>
+                <div class="density">
+                  <span>比重</span>
+                  <%= analysis.density %>
+                </div>
+                <div class="alcohol">
+                  <span>Alcohol</span>
+                  <%= analysis.alcohol %>
+                </div>
+                <div class="extract">
+                  <span>エキス</span>
+                  <%= analysis.extract %>
+                </div>
+                <div class="acid_defree">
+                  <span>酸</span>
+                  <%= analysis.acid_degree %>
+                </div>
+                <div class="amino_acid">
+                  <span>アミノ酸</span>
+                  <%= analysis.amino_acid %>
+                </div>
+                <div class="color">
+                  <span>OD430nm</span>
+                  <%= analysis.color %>
+                </div>
+                <div class="nacl">
+                  <span>塩分</span>
+                  <%= analysis.nacl %>
+                </div>
+                <div class="turbidity">
+                  <span>濁度</span>
+                  <%= analysis.turbidity %>
+                </div>
+                <div class="free-sulfurous_acid">
+                  <span>亜硫酸Free</span>
+                  <%= analysis.free_sulfurous_acid %>
+                </div>
+                <div class="total-sulfurous_acid">
+                  <span>亜硫酸Total</span>
+                  <%= analysis.total_sulfurous_acid %>
+                </div>
+                <div class="comment">
+                  <span>備考</span>
+                  <%= analysis.comment %>
+                </div>
+              </div>
+          </div>
+        <% end %>
       <% end %>
+    <% end %>
   </div>

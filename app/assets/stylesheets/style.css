@@ -72,3 +72,13 @@ h2 {
 .analysis-cards {
   display: flex;
 }
+
+.analysis-card {
+  border: solid 5px #f1f8fe;
+  width: 200px;
+  margin: 5px;
+}
+
+.analysis-input {
+  width: 70px;
+}

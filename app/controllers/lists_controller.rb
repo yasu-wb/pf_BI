@@ -18,8 +18,9 @@ class ListsController < ApplicationController
       render :index
     end
   end
-  
+
   private
+
   def list_params
     params.require(:list).permit(:incode).merge(date: Date.today, item_ids: [@item.id])
   end

@@ -12,16 +12,16 @@ RSpec.describe User, type: :model do
 
   context 'ユーザー新規登録ができない時' do
     it 'IDが空の時' do
-      @user.number_id =nil
+      @user.number_id = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include ("Number can't be blank")
+      expect(@user.errors.full_messages).to include("Number can't be blank")
     end
 
     it 'IDがすでに使われている時' do
       @user.save
       another_user = FactoryBot.build(:user, number_id: @user.number_id)
       another_user.valid?
-      expect(another_user.errors.full_messages).to include ("Number has already been taken")
+      expect(another_user.errors.full_messages).to include('Number has already been taken')
     end
 
     it 'passwordが空では登録ができないこと' do
@@ -56,7 +56,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
-    
+
     it '苗字が空では登録ができないこと' do
       @user.last_name = nil
       @user.valid?

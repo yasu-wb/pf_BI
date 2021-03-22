@@ -18,16 +18,16 @@ RSpec.describe Item, type: :model do
     end
 
     it 'INコードが全角数字では登録できない' do
-      @item.incode = "１２３４５６"
+      @item.incode = '１２３４５６'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Incode Half-width number")
+      expect(@item.errors.full_messages).to include('Incode Half-width number')
     end
 
     it '既にINコードが使われている時' do
       @item.save
       another_item = FactoryBot.build(:item, incode: @item.incode)
       another_item.valid?
-      expect(another_item.errors.full_messages).to include("Incode has already been taken")
+      expect(another_item.errors.full_messages).to include('Incode has already been taken')
     end
 
     it '製品名が空では登録できない' do
@@ -39,13 +39,13 @@ RSpec.describe Item, type: :model do
     it '主カテゴリが0では登録できない' do
       @item.main_category = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Main category Select")
+      expect(@item.errors.full_messages).to include('Main category Select')
     end
 
     it '副カテゴリが0では登録できない' do
       @item.sub_category = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Sub category Select")
+      expect(@item.errors.full_messages).to include('Sub category Select')
     end
   end
 end
