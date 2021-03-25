@@ -12,15 +12,15 @@
     <div class = "today-list">
       <div class = "washu-bar">和酒
         <% @lists.each do |list| %>
-        <% list.item_lists.each do |item_list| %>
-          <% if item_list.item.main_category == 1 %>
-            <%= item_list.item.incode %>
-            <%= item_list.item.name %>
+          <% list.item_lists.each do |item_list| %>
+            <% if item_list.item.main_category == 1 %>
+              <%= item_list.item.incode %>
+              <%= item_list.item.name %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
       </div>
-      
+
       <div class = "yoshu-bar">洋酒
       <% @lists.each do |list| %>
         <% list.item_lists.each do |item_list| %>

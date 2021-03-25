@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_113640) do
+ActiveRecord::Schema.define(version: 2021_03_20_051656) do
+
+  create_table "analyses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "list_id", null: false
+    t.bigint "item_id", null: false
+    t.string "tank_no", null: false
+    t.float "density", null: false
+    t.float "alcohol", null: false
+    t.float "extract", null: false
+    t.float "acid_degree"
+    t.float "amino_acid"
+    t.float "color"
+    t.float "nacl"
+    t.float "turbidity"
+    t.integer "free_sulfurous_acid"
+    t.integer "total_sulfurous_acid"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_analyses_on_item_id"
+    t.index ["list_id"], name: "index_analyses_on_list_id"
+  end
 
   create_table "item_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
@@ -55,6 +76,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_113640) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "analyses", "items"
+  add_foreign_key "analyses", "lists"
   add_foreign_key "item_lists", "items"
   add_foreign_key "item_lists", "lists"
 end

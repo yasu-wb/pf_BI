@@ -1,0 +1,137 @@
+<h1>分析シート</h1>
+  <div class="analysis-cards">
+    <% @lists.each do |list| %>
+      <% if list.analyses.blank? %>
+        <% list.item_lists.each do |item_list| %>
+          <ul class="analysis-card">
+            <li class="incode">
+              <span>INコード</span>
+              <%= item_list.item.incode %>
+            </li>
+            <li class="item-name">
+              <span>製品名</span>
+                <%= item_list.item.name %>
+            </li>
+            <%= form_with(model: @analysis, local: true) do |f| %>
+              <li class="tank-no">
+                <span>タンクNo.</span>
+                <%= f.text_field :tank_no, class:"analysis-input" %>
+              </li>
+              <li class="density">
+                <span>比重</span>
+                <%= f.text_field :density, class:"analysis-input" %>
+              </li>
+              <li class="alcohol">
+                <span>Alcohol</span>
+                <%= f.text_field :alcohol, class:"analysis-input" %>
+              </li>
+              <li class="extract">
+                <span>エキス</span>
+                <%= f.text_field :extract, class:"analysis-input" %>
+              </li>
+              <li class="acid_degree">
+                <span>酸</span>
+                <%= f.text_field :acid_degree, class:"analysis-input" %>
+              </li>
+              <li class="amino_acid">
+                <span>アミノ酸</span>
+                <%= f.text_field :amino_acid, class:"analysis-input" %>
+              </li>
+              <li class=color>
+                <span>OD430nm</span>
+                <%= f.text_field :color, class:"analysis-input" %>
+              </li>
+              <li class="nacl">
+                <span>塩分</span>
+                <%= f.text_field :nacl, class:"analysis-input" %>
+              </li>
+              <li class="turbidity">
+                <span>濁度</span>
+                <%= f.text_field :turbidity, class:"analysis-input" %>
+              </li>
+              <li class="free_sulfurous_acid">
+                <span>亜硫酸Free</span>
+                <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
+              </li>
+              <li class="total_sulfurous_acid">
+                <span>亜硫酸Total</span>
+                <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
+              </li>
+              <div class="comment">
+                <span>備考</span>
+                <%= f.text_area :comment, class:"comment-input" %>
+              </div>
+              <div class="foreign_key_id">
+                <%= f.hidden_field :item_id, value: item_list.item.id %>
+                <%= f.hidden_field :list_id, value: item_list.list.id %>
+              </div>
+              <div class="btn-contents">
+                <%= f.submit "入力" , class:"insert-btn" %>
+              </div>
+            <% end %>
+          </ul>
+        <% end %>
+      <% else %>
+        <% list.analyses.each do |analysis| %>
+          <ul class="analysis-card">
+            <li class="incode">
+              <span>INコード</span>
+                <%= analysis.item.incode %>
+            </li>
+            <li class="name">
+              <span>製品名</span>
+              <%= analysis.item.name %>
+            </li>
+            <li class="tank-no">
+              <span>タンクNo.</span>
+              <%= analysis.tank_no %>
+            </li>
+            <li class="density">
+              <span>比重</span>
+              <%= analysis.density %>
+            </li>
+            <li class="alcohol">
+              <span>Alcohol</span>
+              <%= analysis.alcohol %>
+            </li>
+            <li class="extract">
+              <span>エキス</span>
+              <%= analysis.extract %>
+            </li>
+            <li class="acid_defree">
+              <span>酸</span>
+              <%= analysis.acid_degree %>
+            </li>
+            <li class="amino_acid">
+              <span>アミノ酸</span>
+              <%= analysis.amino_acid %>
+            </li>
+            <li class="color">
+              <span>OD430nm</span>
+              <%= analysis.color %>
+            </li>
+            <li class="nacl">
+              <span>塩分</span>
+              <%= analysis.nacl %>
+            </li>
+            <li class="turbidity">
+              <span>濁度</span>
+              <%= analysis.turbidity %>
+            </li>
+            <li class="free-sulfurous_acid">
+              <span>亜硫酸Free</span>
+              <%= analysis.free_sulfurous_acid %>
+            </li>
+            <li class="total-sulfurous_acid">
+              <span>亜硫酸Total</span>
+              <%= analysis.total_sulfurous_acid %>
+            </li>
+            <div class="comment">
+              <span>備考</span>
+              <%= analysis.comment %>
+            </div>
+          </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
