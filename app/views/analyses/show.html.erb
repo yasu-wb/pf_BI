@@ -1,0 +1,63 @@
+<h1>分析結果</h1>
+  <h2></h2>
+          <ul class="analysis-card">
+            <div class="date">
+              <%= @analysis.list.date %>
+            </div>
+            <li class="incode">
+              <span>INコード</span>
+                <%= @analysis.item.incode %>
+            </li>
+            <li class="name">
+              <span>製品名</span>
+              <%= @analysis.item.name %>
+            </li>
+            <li class="tank-no">
+              <span>タンクNo.</span>
+              <%= @analysis.tank_no %>
+            </li>
+            <li class="density">
+              <span>比重</span>
+              <%= @analysis.density %>
+            </li>
+            <li class="alcohol">
+              <span>Alcohol</span>
+              <%= @analysis.alcohol %>
+            </li>
+            <li class="extract">
+              <span>エキス</span>
+              <%= @analysis.extract %>
+            </li>
+            <li class="acid_defree">
+              <span>酸</span>
+              <%= @analysis.acid_degree %>
+            </li>
+            <li class="amino_acid">
+              <span>アミノ酸</span>
+              <%= @analysis.amino_acid %>
+            </li>
+            <li class="color">
+              <span>OD430nm</span>
+              <%= @analysis.color %>
+            </li>
+            <li class="nacl">
+              <span>塩分</span>
+              <%= @analysis.nacl %>
+            </li>
+            <li class="turbidity">
+              <span>濁度</span>
+              <%= @analysis.turbidity %>
+            </li>
+            <li class="free-sulfurous_acid">
+              <span>亜硫酸Free</span>
+              <%= @analysis.free_sulfurous_acid %>
+            </li>
+            <li class="total-sulfurous_acid">
+              <span>亜硫酸Total</span>
+              <%= @analysis.total_sulfurous_acid %>
+            </li>
+            <div class="comment">
+              <span>備考</span>
+              <%= @analysis.comment %>
+            </div>
+          </ul>

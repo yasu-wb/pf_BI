@@ -1,0 +1,9 @@
+<h1>検索</h1>
+  <%= search_form_for @l, url: result_lists_path do |f| %>
+    <%= f.label :incode_eq, 'INコード' %>
+    <%= f.search_field :incode_eq %>
+    <br>
+  <%= f.submit '検索' %>
+
+  
+  <% end %>
