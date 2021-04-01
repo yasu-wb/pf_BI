@@ -6,8 +6,10 @@ class AnalysesController < ApplicationController
 
   def create
     if @analysis = Analysis.create(analysis_params)
-      redirect_to root_path
+      flash[:notice] = "分析値の入力に成功しました"
+      redirect_to analyses_path
     else
+      flash.now[:alert] = "分析値の入力に失敗しました"
       render :index
     end
   end

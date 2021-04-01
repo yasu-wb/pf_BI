@@ -11,11 +11,15 @@ class ListsController < ApplicationController
   end
 
   def create
-    @item = Item.find_by(incode: params[:list][:incode])
-    @list = List.new(list_params)
-    if @list.save
-      redirect_to root_path
+    @lists = List.where(date: Date.today)
+    @list = List.new
+    if @item = Item.find_by(incode: params[:list][:incode])
+      @list = List.new(list_params)
+      @list.save
+      flash[:notice] = "当日生産リストに追加しました"
+      redirect_to lists_path
     else
+      flash.now[:alert] = "INコードが見つかりません"
       render :index
     end
   end

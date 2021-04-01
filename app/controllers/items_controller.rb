@@ -9,8 +9,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      flash[:notice] = "登録に成功しました"
+      redirect_to new_item_path
     else
+      flash.now[:alert] = "登録に失敗しました"
       render :new
     end
   end
