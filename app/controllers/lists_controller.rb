@@ -16,8 +16,7 @@ class ListsController < ApplicationController
     if @item = Item.find_by(incode: params[:list][:incode])
       @list = List.new(list_params)
       @list.save
-      flash[:notice] = "当日生産リストに追加しました"
-      redirect_to lists_path
+      redirect_to lists_path, notice: "当日生産リストに追加しました"
     else
       flash.now[:alert] = "INコードが見つかりません"
       render :index
