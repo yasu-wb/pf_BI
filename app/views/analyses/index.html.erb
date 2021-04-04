@@ -13,6 +13,7 @@
                 <%= item_list.item.name %>
             </li>
             <%= form_with(model: @analysis, local: true) do |f| %>
+              <%= render 'layouts/error_messages', model: f.object %> 
               <li class="tank-no">
                 <span>タンクNo.</span>
                 <%= f.text_field :tank_no, class:"analysis-input" %>

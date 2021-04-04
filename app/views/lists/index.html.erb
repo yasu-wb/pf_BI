@@ -4,6 +4,7 @@
       <%= f.label :incode, "INコード" %><br />
       <%= f.text_field :incode %>
       <%= f.submit "登録", class: :form__btn %>
+      <%= render 'layouts/error_messages', model: f.object %> 
     <% end %>
   </div>
 </h1>

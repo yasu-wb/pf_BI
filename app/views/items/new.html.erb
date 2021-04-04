@@ -4,6 +4,8 @@
       <h2 class="page-heading">新製品登録</h2>
         <%= form_with(model: @item, local: true) do |f| %>
 
+        <%= render 'layouts/error_messages', model: f.object %> 
+
           <div class="field">
             <%= f.label :incode, "INコード" %><br />
             <%= f.text_field :incode %>

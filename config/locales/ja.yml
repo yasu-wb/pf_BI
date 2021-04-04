@@ -3,3 +3,13 @@ ja:
     attributes:
       user:
         number_id: ID
+      item:
+        incode: INコード
+        name:   製品名
+        main_category: 主カテゴリー
+        sub_category:  副カテゴリー
+      analysis:
+        tank_no: タンクNo.
+        density:  比重
+        alcohol:  Alc度数
+        extract:  エキス分
