@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        number_id: ID
+        last_name: 姓
+        first_name: 名
+      item:
+        incode: INコード
+        name:   製品名
+        main_category_id: 主カテゴリー
+        sub_category_id:  副カテゴリー
+      analysis:
+        tank_no: タンクNo.
+        density:  比重
+        alcohol:  Alc度数
+        extract:  エキス分
+        acid_degree:  酸
+        amino_acid:  アミノ酸
+        color:  色
+        nacl: 塩分
+        turbidity:  濁度
+        free_sulfurous_acid:  亜硫酸（遊離分）
+        total_sulfurous_acid: 亜硫酸（総量）
+        comment:  備考

@@ -1,7 +1,8 @@
 <div class="main">
   <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">新製品登録</h2>
+    <h2 class="page-heading">新製品登録</h2>
+    <div class="form_wrapper">
+      <div class="item-input">
         <%= form_with(model: @item, local: true) do |f| %>
 
           <div class="field">
@@ -16,18 +17,34 @@
 
           <div class="field">
             <%= f.label :main_category, "主カテゴリー" %><br />
-            <%= f.collection_select(:main_category, MainCategory.all, :id, :name, {}, {class: "category_select"}) %>
+            <%= f.collection_select(:main_category_id, MainCategory.all, :id, :name, {}, {class: "category_select"}) %>
           </div>
           
           <div class="field">
             <%= f.label :sub_category, "副カテゴリー" %><br />
-            <%= f.collection_select(:sub_category, Category.all, :id, :name, {}, {class: "category_select"}) %>
+            <%= f.collection_select(:sub_category_id, SubCategory.all, :id, :name, {}, {class: "category_select"}) %>
           </div>
 
           <div class="actions">
             <%= f.submit "登録", class: :form__btn %>
           </div>
+
+          <%= render 'layouts/error_messages', model: f.object %> 
         <% end %>
+      </div>
+
+      <div class="item-index">
+        <h2>登録済み製品</h2>
+        <ul class="all-item">
+          <% @items.each do |i| %>
+            <li>
+              <%= i.incode %>
+              <%= i.sub_category.name %>
+              <%= i.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

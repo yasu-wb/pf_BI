@@ -4,43 +4,55 @@
       <%= f.label :incode, "INコード" %><br />
       <%= f.text_field :incode %>
       <%= f.submit "登録", class: :form__btn %>
+      <%= render 'layouts/error_messages', model: f.object %> 
     <% end %>
   </div>
-
 </h1>
   <h2>
     <div class = "today-list">
-      <div class = "washu-bar">和酒
-        <% @lists.each do |list| %>
-          <% list.item_lists.each do |item_list| %>
-            <% if item_list.item.main_category == 1 %>
-              <%= item_list.item.incode %>
-              <%= item_list.item.name %>
+        <ul class = "washu-bar">
+          <span>和酒</span>
+          <% @lists.each do |list| %>
+            <% list.item_lists.each do |item_list| %>
+              <% if item_list.item.main_category_id == 1 %>
+              <li>
+                <%= item_list.item.incode %>
+                <%= item_list.item.sub_category.name %>
+                <%= item_list.item.name %>
+              </li>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </ul>
 
-      <div class = "yoshu-bar">洋酒
-      <% @lists.each do |list| %>
-        <% list.item_lists.each do |item_list| %>
-          <% if item_list.item.main_category == 2 %>
-            <%= item_list.item.incode %>
-            <%= item_list.item.name %>
+        <ul class = "yoshu-bar">
+          <span>洋酒</span>
+          <% @lists.each do |list| %>
+            <% list.item_lists.each do |item_list| %>
+              <% if item_list.item.main_category_id == 2 %>
+              <li>
+                <%= item_list.item.incode %>
+                <%= item_list.item.sub_category.name %>
+                <%= item_list.item.name %>
+              </li>
+              <% end %>
+            <% end %>
           <% end %>
-        <% end %>
-      <% end %>
-      </div>
+        </ul>
 
-      <div class = "genshu-bar">原酒
-      <% @lists.each do |list| %>
-        <% list.item_lists.each do |item_list| %>
-          <% if item_list.item.main_category == 3 %>
-            <%= item_list.item.incode %>
-            <%= item_list.item.name %>
+        <ul class = "genshu-bar">
+          <span>原酒</span>
+          <% @lists.each do |list| %>
+            <% list.item_lists.each do |item_list| %>
+              <% if item_list.item.main_category_id == 3 %>
+              <li>
+                <%= item_list.item.incode %>
+                <%= item_list.item.sub_category.name %>
+                <%= item_list.item.name %>
+              </li>
+              <% end %>
+            <% end %>
           <% end %>
-        <% end %>
-      <% end %>
-      </div>
+        </ul>
     </div>
   <h2>

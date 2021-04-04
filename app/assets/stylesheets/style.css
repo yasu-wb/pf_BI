@@ -58,12 +58,22 @@ main {
   width: 400px;
   height: 400px;
 }
+.error-message {
+  font-size: 10px;
+  color: red;
+  text-align: center;
+  }
 
+/* item */
+.form_wrapper {
+  display: flex;
+  justify-content: space-around;
+}
 /* list */
 .today-list {
   display: flex;
+  justify-content: space-around;
 }
-
 /* analysis */
 h1 {
   padding: 10px;
@@ -94,7 +104,21 @@ li {
   justify-content: space-between;
   height: 40px;
 }
-
+.sulfurous_acid {
+  border: solid 1px rgba(var(--b6a,219,219,219),1);
+  padding: 5px;
+  margin: 5px;
+  height: 100px;
+}
+.free_sulfurous_acid{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.total_sulfurous_acid{
+  display: flex;
+  justify-content: space-between;
+}
 .comment {
   border: solid 1px rgba(var(--b6a,219,219,219),1);
   padding: 5px;

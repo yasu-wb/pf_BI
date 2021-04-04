@@ -13,6 +13,7 @@
                 <%= item_list.item.name %>
             </li>
             <%= form_with(model: @analysis, local: true) do |f| %>
+              
               <li class="tank-no">
                 <span>タンクNo.</span>
                 <%= f.text_field :tank_no, class:"analysis-input" %>
@@ -49,14 +50,17 @@
                 <span>濁度</span>
                 <%= f.text_field :turbidity, class:"analysis-input" %>
               </li>
-              <li class="free_sulfurous_acid">
-                <span>亜硫酸Free</span>
-                <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
-              </li>
-              <li class="total_sulfurous_acid">
-                <span>亜硫酸Total</span>
-                <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
-              </li>
+              <div class="sulfurous_acid">
+                <span>亜硫酸</span>
+                <div class="free_sulfurous_acid">
+                  <span>Free</span>
+                  <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
+                </div>
+                <div class="total_sulfurous_acid">
+                  <span>Total</span>
+                  <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
+                </div>
+              </div>
               <div class="comment">
                 <span>備考</span>
                 <%= f.text_area :comment, class:"comment-input" %>
@@ -68,6 +72,7 @@
               <div class="btn-contents">
                 <%= f.submit "入力" , class:"insert-btn" %>
               </div>
+              <%= render 'layouts/error_messages', model: f.object %> 
             <% end %>
           </ul>
         <% end %>
@@ -98,7 +103,7 @@
               <span>エキス</span>
               <%= analysis.extract %>
             </li>
-            <li class="acid_defree">
+            <li class="acid_degree">
               <span>酸</span>
               <%= analysis.acid_degree %>
             </li>
@@ -118,14 +123,17 @@
               <span>濁度</span>
               <%= analysis.turbidity %>
             </li>
-            <li class="free-sulfurous_acid">
-              <span>亜硫酸Free</span>
-              <%= analysis.free_sulfurous_acid %>
-            </li>
-            <li class="total-sulfurous_acid">
-              <span>亜硫酸Total</span>
-              <%= analysis.total_sulfurous_acid %>
-            </li>
+            <div class="sulfurous_acid">
+              <span>亜硫酸</span>
+              <div class="free_sulfurous_acid">
+                <span>Free</span>
+                <%= analysis.free_sulfurous_acid %>
+              </div>
+              <div class="total_sulfurous_acid">
+                <span>Total</span>
+                <%= analysis.total_sulfurous_acid %>
+              </div>
+            </div>
             <div class="comment">
               <span>備考</span>
               <%= analysis.comment %>
