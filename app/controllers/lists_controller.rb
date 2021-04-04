@@ -16,9 +16,9 @@ class ListsController < ApplicationController
     if @item = Item.find_by(incode: params[:list][:incode])
       @list = List.new(list_params)
       @list.save
-      redirect_to lists_path, notice: "当日生産リストに追加しました"
+      redirect_to lists_path, notice: '当日生産リストに追加しました'
     else
-      flash.now[:alert] = "INコードが見つかりません"
+      flash.now[:alert] = 'INコードが見つかりません'
       render :index
     end
   end
@@ -27,7 +27,7 @@ class ListsController < ApplicationController
   end
 
   def result
-    @results = @l.result.order(date: "DESC").distinct
+    @results = @l.result.order(date: 'DESC').distinct
   end
 
   private
