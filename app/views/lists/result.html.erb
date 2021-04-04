@@ -14,6 +14,7 @@
             <% result.analyses.each do |analysis| %>
               <%= link_to  analysis_path(analysis.id) do %>
                 <%= analysis.item.incode %>
+                <%= analysis.item.sub_category.name %>
                 <%= analysis.item.name %>
                 <%= analysis.list.date %>
               <% end %>
@@ -22,7 +23,7 @@
         <% end %>
       <% end %>
     <% else %>
-    該当する商品はありません
+      <h3>該当する商品はありません</h3>
     <% end %>
   <br>
 

@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 2021_03_20_051656) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "incode", null: false
     t.string "name", null: false
-    t.integer "main_category", null: false
-    t.integer "sub_category", null: false
+    t.integer "main_category_id", null: false
+    t.integer "sub_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
