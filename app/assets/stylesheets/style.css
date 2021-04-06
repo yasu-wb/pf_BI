@@ -53,10 +53,13 @@ main {
 .dashboard {
   display: flex;
   justify-content: space-around;
+  padding: 100px;
 }
 .card_img {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
+  border: solid 2px rgba(var(--b6a,219,219,219),1);
+  margin: 20px;
 }
 .error-message {
   font-size: 10px;

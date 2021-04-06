@@ -9,19 +9,19 @@
     <%# // ログインしているときは上記を表示する %>
     <div class="dashboard">
       <div class="registration-card">
-        <%= link_to image_tag("logo.png", class: :card_img), new_item_path %>
+        <%= link_to image_tag("book-open.svg", class: :card_img), new_item_path %>
       </div>
 
       <div class="today-schedule-card">
-        <%= link_to image_tag("logo.png", class: :card_img), lists_path %>
+        <%= link_to image_tag("list.svg", class: :card_img), lists_path %>
       </div>
 
       <div class="today-analysis-card">
-        <%= link_to image_tag("logo.png", class: :card_img), analyses_path %>
+        <%= link_to image_tag("edit.svg", class: :card_img), analyses_path %>
       </div>
 
       <div class="search-card">
-        <%= link_to image_tag("logo.png", class: :card_img), search_lists_path %>
+        <%= link_to image_tag("search.svg", class: :card_img), search_lists_path %>
       </div>
     </div>
   </div>
