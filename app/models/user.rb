@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は半角英数字混合で入力してください' }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category
+  belongs_to :sub_category
 
   def email_required?
     false
@@ -28,5 +28,11 @@ class User < ApplicationRecord
 
   def email_changed?
     false
+  end
+
+  def self.guest
+    find_or_create_by!(number_id: '999999', last_name: 'ゲスト', first_name: 'ユーザー', in_charge1: '1', in_charge2: '2', in_charge3: '3') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
   end
 end
