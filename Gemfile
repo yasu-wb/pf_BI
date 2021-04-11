@@ -45,6 +45,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
+
 end
 
 group :test do
@@ -63,3 +64,5 @@ gem 'devise'
 gem 'active_hash'
 gem 'ransack'
 gem 'rails-i18n'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
