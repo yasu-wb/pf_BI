@@ -61,3 +61,4 @@
               <%= @analysis.comment %>
             </div>
           </ul>
+        <%= button_to "PDF出力", generatepdf_analyses_path, {method: :get, params:{id: @analysis.id}} %>

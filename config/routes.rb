@@ -11,5 +11,10 @@ Rails.application.routes.draw do
       get :result
     end
   end
-  resources :analyses
+  resources :analyses do
+    collection do
+      get :generatepdf
+    end
+  end
+  # get 'analyses/pdf', to: 'analyses#pdf'
 end
