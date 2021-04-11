@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @items =Item.all
+    @items = Item.all
     @item = Item.new(item_params)
     if @item.save
       redirect_to new_item_path, notice: '登録に成功しました'

@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
     it 'INコードが空では登録できない' do
       @item.incode = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("INコードを入力してください")
+      expect(@item.errors.full_messages).to include('INコードを入力してください')
     end
 
     it 'INコードが全角数字では登録できない' do
@@ -33,7 +33,7 @@ RSpec.describe Item, type: :model do
     it '製品名が空では登録できない' do
       @item.name = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("製品名を入力してください")
+      expect(@item.errors.full_messages).to include('製品名を入力してください')
     end
 
     it '主カテゴリが0では登録できない' do

@@ -19,13 +19,13 @@ class AnalysesController < ApplicationController
   def show
     @analysis = Analysis.find(params[:id])
     respond_to do |format|
-      format.html 
+      format.html
       format.pdf do
         pdf = WickedPdf.new.pdf_from_string(
           render_to_string(layout: 'layouts/pdf_layouts.html',
-            template: 'analyses/generatepdf.html',
-            title: "#{@analysis.item.name}",
-            page_size: 'A4',)
+                           template: 'analyses/generatepdf.html',
+                           title: @analysis.item.name.to_s,
+                           page_size: 'A4')
         )
         send_data(pdf)
       end
@@ -35,14 +35,14 @@ class AnalysesController < ApplicationController
   def generatepdf
     @analysis = Analysis.find(params[:id])
     respond_to do |format|
-      format.html 
+      format.html
       format.pdf do
-        send_data pdf.render, pdf: "#{@analysis.item.name}",
-               layout: 'layouts/pdf_layouts',
-               template: 'analyses/generatepdf',
-               title: "#{@analysis.item.name}",
-               page_size: 'A4',
-               disposition: "inline"
+        send_data pdf.render, pdf: @analysis.item.name.to_s,
+                              layout: 'layouts/pdf_layouts',
+                              template: 'analyses/generatepdf',
+                              title: @analysis.item.name.to_s,
+                              page_size: 'A4',
+                              disposition: 'inline'
       end
     end
   end
