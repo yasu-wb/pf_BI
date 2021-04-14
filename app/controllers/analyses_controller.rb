@@ -24,7 +24,7 @@ class AnalysesController < ApplicationController
         pdf = WickedPdf.new.pdf_from_string(
           render_to_string(layout: 'layouts/pdf_layouts.html',
                            template: 'analyses/generatepdf.html',
-                           title: @analysis.item.name.to_s,
+                           title: "#{@analysis.item.name}",
                            page_size: 'A4')
         )
         send_data(pdf)
@@ -37,12 +37,12 @@ class AnalysesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        send_data pdf.render, pdf: @analysis.item.name.to_s,
-                              layout: 'layouts/pdf_layouts',
-                              template: 'analyses/generatepdf',
-                              title: @analysis.item.name.to_s,
-                              page_size: 'A4',
-                              disposition: 'inline'
+        render pdf: "#{@analysis.item.name}",
+              layout: 'layouts/pdf_layouts.html',
+              template: 'analyses/generatepdf.html',
+              title: @analysis.item.name.to_s,
+              page_size: 'A4',
+              disposition: 'inline'
       end
     end
   end

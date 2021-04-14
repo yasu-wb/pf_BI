@@ -16,5 +16,5 @@ Rails.application.routes.draw do
       get :generatepdf
     end
   end
-  # get 'analyses/pdf', to: 'analyses#pdf'
+  post 'analyses/generatepdf', to: 'analyses#generatepdf'
 end
