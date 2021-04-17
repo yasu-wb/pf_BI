@@ -1,5 +1,4 @@
-<h1>
-  <div class="Incode">
+  <div class="head-incode">
     <%= form_with(model: @list, local: true) do |f| %>
       <%= f.label :incode, "INコード" %><br />
       <%= f.text_field :incode %>
@@ -7,8 +6,6 @@
       <%= render 'layouts/error_messages', model: f.object %> 
     <% end %>
   </div>
-</h1>
-  <h2>
     <div class = "today-list">
         <ul class = "washu-bar">
           <span>和酒</span>
@@ -55,4 +52,3 @@
           <% end %>
         </ul>
     </div>
-  <h2>

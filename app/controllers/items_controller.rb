@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def index
   end
 
@@ -24,3 +26,5 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:incode, :name, :main_category_id, :sub_category_id)
   end
 end
+
+

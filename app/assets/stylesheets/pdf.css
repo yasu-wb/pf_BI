@@ -22,11 +22,12 @@
   display: flex;
   justify-content: center;
 }
-h1 {
+.analysis-report, .report-item {
   text-align: center;
   font-size: 40px;
+  margin: 20px 0;
 }
-h2 {
+.item-lot {
   text-align: center;
   font-size: 30px;
 }
