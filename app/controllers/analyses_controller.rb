@@ -1,11 +1,12 @@
 class AnalysesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_lists_today, only: [:index, :create]
+  before_action :find_analysis, only: [:show, :generatepdf]
   def index
-    @lists = List.where(date: Date.today)
     @analysis = Analysis.new
   end
 
   def create
-    @lists = List.where(date: Date.today)
     @analysis = Analysis.new(analysis_params)
     if @analysis.save
       flash[:notice] = '分析値の入力に成功しました'
@@ -17,7 +18,6 @@ class AnalysesController < ApplicationController
   end
 
   def show
-    @analysis = Analysis.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
@@ -33,7 +33,6 @@ class AnalysesController < ApplicationController
   end
 
   def generatepdf
-    @analysis = Analysis.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
@@ -52,5 +51,13 @@ class AnalysesController < ApplicationController
   def analysis_params
     params.require(:analysis).permit(:tank_no, :density, :alcohol, :extract, :acid_degree, :amino_acid, :color, :nacl,
                                      :turbidity, :free_sulfurous_acid, :total_sulfurous_acid, :comment, :item_id, :list_id)
+  end
+
+  def set_lists_today
+    @lists = List.where(date: Date.today)
+  end
+
+  def find_analysis
+    @analysis = Analysis.find(params[:id])
   end
 end

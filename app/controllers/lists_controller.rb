@@ -1,18 +1,15 @@
 class ListsController < ApplicationController
+  before_action :set_list, except: [:search, :result]
+  before_action :set_lists_today, only: [:index, :create]
   before_action :search_lists, only: [:search, :result]
 
   def index
-    @lists = List.where(date: Date.today)
-    @list = List.new
   end
 
   def new
-    @list = List.new
   end
 
   def create
-    @lists = List.where(date: Date.today)
-    @list = List.new
     if @item = Item.find_by(incode: params[:list][:incode])
       @list = List.new(list_params)
       @list.save
@@ -38,5 +35,13 @@ class ListsController < ApplicationController
 
   def search_lists
     @l = List.ransack(params[:q])
+  end
+
+  def set_list
+    @list = List.new
+  end
+
+  def set_lists_today
+    @lists = List.where(date: Date.today)
   end
 end
