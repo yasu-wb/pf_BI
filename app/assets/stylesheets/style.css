@@ -1,17 +1,19 @@
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  background-color: #243856;
   padding: 20px 0;
 }
 .inner {
   width: 1024px;
   margin: 0 auto;
+
 }
 .nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .logo {
   width: 200px;
@@ -48,34 +50,101 @@ main {
   background-color: rgba(var(--b3f,250,250,250),1);
   width: 100%;
   height: 100vh;
+  padding-top: 30px;
+}
+.main-view {
+  width: 1024px;
+  margin: 0 auto;
+}
+.category-select {
+  height: 30px;
 }
 
+.portfolio-policy {
+  text-align: center;
+  color: rgba(var(--b6a,219,219,219),1);
+}
 .dashboard {
   display: flex;
   justify-content: space-around;
-  padding: 100px;
+}
+.dashboard-card {
+  border: solid 2px rgba(var(--b6a,219,219,219),1);
+  background-color: #fff;
+  margin: 20px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: rgb(0 0 0 / 4%) 0px 2px 10px;
+}
+
+p {
+  font-size: 20px;
+  color: #243856;
+  text-align: center;
 }
 .card_img {
   width: 200px;
-  height: 200px;
-  border: solid 2px rgba(var(--b6a,219,219,219),1);
-  margin: 20px;
+  height: 300px;
+  padding-top: 20px;
+
 }
 .error-message {
   font-size: 10px;
   color: red;
   text-align: center;
   }
-
+.flash-message {
+  color: #fff;
+}
+.guest-login, .links {
+  margin: 10px 0;
+}
 /* item */
-.form_wrapper {
+.item-pool {
   display: flex;
   justify-content: space-around;
 }
+.page-heading {
+  font-size: 20px;
+  color: #243856;
+  margin-bottom: 20px;
+}
+
+.item-list {
+  border: solid 1px rgba(var(--b6a,219,219,219),1);
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  width: 350px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: rgb(0 0 0 / 4%) 0px 2px 10px;
+}
+
+a {
+  font-size: 15px;
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 10px;
+}
 /* list */
+.head-incode {
+  padding: 20px;
+}
 .today-list {
   display: flex;
   justify-content: space-around;
+}
+
+.item-list-today {
+  border: solid 1px rgba(var(--b6a,219,219,219),1);
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: rgb(0 0 0 / 4%) 0px 2px 10px;
 }
 /* analysis */
 h1 {
@@ -93,10 +162,11 @@ h1 {
 
 .analysis-card {
   border: solid 1px rgba(var(--b6a,219,219,219),1);
-  background-color: white;
-  width: 250px;
+  background-color: #fff;
+  width: 210px;
   margin: 5px;
   justify-content: space-between;
+  box-shadow: rgb(0 0 0 / 4%) 0px 2px 10px;
 }
 
 li {
@@ -105,8 +175,11 @@ li {
   display: flex;
   padding: 5px;
   justify-content: space-between;
+  width: 200px;
   height: 40px;
+  box-shadow: rgb(0 0 0 / 4%) 0px 2px 10px;
 }
+
 .sulfurous_acid {
   border: solid 1px rgba(var(--b6a,219,219,219),1);
   padding: 5px;
@@ -144,4 +217,27 @@ li {
   height: 100px;
   text-align: center;
   background-color: rgba(var(--b3f,250,250,250),1);
+}
+.date {
+  text-align: center;
+  padding-right: 5px;
+}
+.show-dashboard {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pdf-description {
+  border: solid 1px rgba(var(--b6a,219,219,219),1);
+  background-color: #fff;
+  margin: 5px;
+  padding: 10px;
+  justify-content: space-between;
+  box-shadow: rgb(0 0 0 / 4%) 0px 2px 10px;
+}
+
+.pdf-button {
+  margin: 10px;
+  position: absolute;
+  right: 300px;
 }

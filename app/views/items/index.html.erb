@@ -1,26 +1,26 @@
 <main class="main">
   <div class="inner">
-    <%# ログインしているときは以下を表示する %>
-      <div class="greeting">
-        こんにちは、
-        <%= link_to current_user.last_name, edit_user_registration_path, class: :greeting__link %>
-        さん
-      </div>
-    <%# // ログインしているときは上記を表示する %>
+    <h1 class="portfolio-policy">
+        業務効率化と年間約4000枚のペーパーレス化を図るポートフォリオ
+    </h1>
     <div class="dashboard">
-      <div class="registration-card">
+      <div class="dashboard-card">
+        <p>新製品登録</p>
         <%= link_to image_tag("book-open.svg", class: :card_img), new_item_path %>
       </div>
 
-      <div class="today-schedule-card">
+      <div class="dashboard-card">
+        <p>当日生産リスト作成</p>
         <%= link_to image_tag("list.svg", class: :card_img), lists_path %>
       </div>
 
-      <div class="today-analysis-card">
+      <div class="dashboard-card">
+        <p>分析値入力</p>
         <%= link_to image_tag("edit.svg", class: :card_img), analyses_path %>
       </div>
 
-      <div class="search-card">
+      <div class="dashboard-card">
+        <p>検索</p>
         <%= link_to image_tag("search.svg", class: :card_img), search_lists_path %>
       </div>
     </div>

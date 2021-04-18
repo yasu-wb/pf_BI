@@ -1,16 +1,15 @@
 <h1>検索</h1>
   
   <%= search_form_for @l, url: result_lists_path do |f| %>
-    <%= f.label :incode_eq, 'INコード' %>
+    <%= f.label :incode_eq, 'INコード' %><br>
     <%= f.search_field :incode_eq %>
-    <br>
     <%= f.submit '検索' %>
 
     <h2>検索結果</h2>
     <% if @results.length !=0 %>
       <% @results.each do |result| %>
         <% if result.analyses.present? %>
-          <li>
+          <div class="item-list">
             <% result.analyses.each do |analysis| %>
               <%= link_to  analysis_path(analysis.id) do %>
                 <%= analysis.item.incode %>
@@ -19,11 +18,11 @@
                 <%= analysis.list.date %>
               <% end %>
             <% end %>
-          </li>
+          </div>
         <% end %>
       <% end %>
     <% else %>
-      <h3>該当する商品はありません</h3>
+      <h3>該当する製品はありません</h3>
     <% end %>
   <br>
 

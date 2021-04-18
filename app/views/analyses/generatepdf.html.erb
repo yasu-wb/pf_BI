@@ -1,8 +1,34 @@
-<h1>分析報告書</h1>
-<h2><%= @analysis.item.name %></h2>
-<table border=1>
-  <tr>
-    <th>比重</th>
-    <td></td>
-  </tr>
-</table>
+<div class="analysis-report">分析報告書</div>
+<div class="report-item"><%= @analysis.item.name %></div>
+  <div class="item-lot">製品ロット: <%= @analysis.list.date %></div>
+  <div class="analysis-table">
+    <table>
+      <tr>
+        <th>項目</th>
+        <td>分析値</td>
+      </tr>
+      <tr>
+        <th>比重</th>
+        <td><%= @analysis.density %></td>
+      </tr>
+      <tr>
+        <th>アルコール分</th>
+        <td><%= @analysis.alcohol %>  v/v%</td>
+      </tr>
+      <tr>
+        <th>エキス分</th>
+        <td><%= @analysis.extract %>  w/v%</td>
+      </tr>
+      <% if @analysis.color != nil %>
+        <tr>
+          <th>色</th>
+          <td><%= @analysis.color %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="item-attention">
+      <% if @analysis.comment.present? %>
+        <a>備考:  <%= @analysis.comment %></a>
+      <% end %>
+    </div>
+  </div>

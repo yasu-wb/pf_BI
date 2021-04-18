@@ -23,6 +23,10 @@
   </div>
 <% end %>
 
-<%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+<div class="guest-login">
+  <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="links">
+  <%= render "devise/shared/links" %>
+</div>

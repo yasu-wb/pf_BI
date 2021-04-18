@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: :index
+  before_action :set_items, except: :index
+
   def index
   end
 
   def new
     @item = Item.new
-    @items = Item.all
   end
 
   def create
-    @items =Item.all
     @item = Item.new(item_params)
     if @item.save
       redirect_to new_item_path, notice: '登録に成功しました'
@@ -22,5 +23,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:incode, :name, :main_category_id, :sub_category_id)
+  end
+
+  def set_items
+    @items = Item.all
   end
 end

@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
     it 'IDが空の時' do
       @user.number_id = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("IDを入力してください")
+      expect(@user.errors.full_messages).to include('IDを入力してください')
     end
 
     it 'IDがすでに使われている時' do
@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
     it 'passwordが空では登録ができないこと' do
       @user.password = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワードを入力してください")
+      expect(@user.errors.full_messages).to include('パスワードを入力してください')
     end
 
     it 'passwordが英字のみでは登録できないこと' do
@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
       @user.password = '123a567'
       @user.password_confirmation = '123a56'
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
     end
 
     it '苗字が空では登録ができないこと' do

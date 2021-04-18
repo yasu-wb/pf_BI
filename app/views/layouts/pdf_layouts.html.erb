@@ -5,13 +5,27 @@
     <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
     <%= wicked_pdf_javascript_include_tag "number_pages" %>
   </head>
-  <body onload='number_pages'>
-    <div id="header">
-      <%= wicked_pdf_image_tag 'mysite.jpg' %>
+  <body>
+    <div class="pdf-header">
+      <div class>
+        
+      </div>
+      <div class="date-info">
+        <span><%= Date.today %></span>
+      </div>
+      <div class="company">
+        <span>○○株式会社</span>
+      </div>
+      <div class="company-info">
+        <a>東京都墨田区○○</a>
+      </div>
     </div>
-    <div id="content">
+    <div class="pdf-main">
       <%= yield %>
-      <span>検査者</span>
+    </div>
+    <div class="pdf-footer">
+      <span>分析責任者</span>
+      <br>
       <%= current_user.last_name %>
     </div>
   </body>

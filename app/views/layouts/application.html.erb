@@ -32,11 +32,16 @@
           <%# // ログインしていないときは上記を表示するようにしましょう %>
           <% end %>
         </div>
+        <div class="flash-message">
+          <%= render 'layouts/flash' %>
+        </div>
       </div>
-      <%= render 'layouts/flash' %>
+      
     </header>
-    <main class="main-view">
-      <%= yield %>
+    <main>
+      <div class="main-view">
+        <%= yield %>
+      </div>
     </main>
     <footer class="footer">
       
