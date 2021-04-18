@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   end
   resources :analyses do
     collection do
-      get :generatepdf
+      post :generatepdf
     end
   end
-  post 'analyses/generatepdf', to: 'analyses#generatepdf'
 end
