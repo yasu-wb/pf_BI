@@ -7,48 +7,48 @@
     <% end %>
   </div>
     <div class = "today-list">
-        <ul class = "washu-bar">
-          <span>和酒</span>
+        <div class = "washu-bar">
+          <p>和酒</p>
           <% @lists.each do |list| %>
             <% list.item_lists.each do |item_list| %>
               <% if item_list.item.main_category_id == 1 %>
-              <li>
+              <div class="item-list-today">
                 <%= item_list.item.incode %>
                 <%= item_list.item.sub_category.name %>
                 <%= item_list.item.name %>
-              </li>
+              </div>
               <% end %>
             <% end %>
           <% end %>
-        </ul>
+        </div>
 
-        <ul class = "yoshu-bar">
-          <span>洋酒</span>
+        <div class = "yoshu-bar">
+          <p>洋酒</p>
           <% @lists.each do |list| %>
             <% list.item_lists.each do |item_list| %>
               <% if item_list.item.main_category_id == 2 %>
-              <li>
+              <div class="item-list-today">
                 <%= item_list.item.incode %>
                 <%= item_list.item.sub_category.name %>
                 <%= item_list.item.name %>
-              </li>
+              </div>
               <% end %>
             <% end %>
           <% end %>
-        </ul>
+        </div>
 
-        <ul class = "genshu-bar">
-          <span>原酒</span>
+        <div class = "genshu-bar">
+          <p>原酒</p>
           <% @lists.each do |list| %>
             <% list.item_lists.each do |item_list| %>
               <% if item_list.item.main_category_id == 3 %>
-              <li>
+              <div class="item-list-today">
                 <%= item_list.item.incode %>
                 <%= item_list.item.sub_category.name %>
                 <%= item_list.item.name %>
-              </li>
+              </div>
               <% end %>
             <% end %>
           <% end %>
-        </ul>
+        </div>
     </div>
