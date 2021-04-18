@@ -62,7 +62,7 @@ main {
 
 .portfolio-policy {
   text-align: center;
-  color: rgba(var(--b6a,219,219,219),1);
+  color: #243856;
 }
 .dashboard {
   display: flex;
