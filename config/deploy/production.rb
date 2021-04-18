@@ -22,7 +22,7 @@
 # role :db,  %w{deploy@example.com}
 
 
-config.force_ssl = true
+config.force_ssl = false
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
