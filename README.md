@@ -1,5 +1,22 @@
 # README
+# アプリケーション名
+  BusinessImprovement
 
+# URL
+  http://54.150.81.120/
+
+## テスト用アカウント
+  ゲストユーザーログイン機能あり
+
+# 利用方法
+
+# 目指した課題解決
+  
+# 要件定義
+
+# 実装予定機能
+
+# データベース設計
 ## usersテーブル
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
@@ -38,10 +55,11 @@
 - belongs_to :list
 
 ## listsテーブル
-| Column        | Type    | Options                        |
-| ------------- | ------- | ------------------------------ |
-| incode        | integer | null: false                    |
-| date          | date    | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| incode        | integer    | null: false                    |
+| date          | date       | null: false                    |
+| item_id       | references | null: false, foreign_key: true |
 
 ### Association
 - has_many :item_lists
@@ -52,7 +70,6 @@
 | -------------------- | ---------- | ------------------------------ |
 | item_id              | references | null: false, foreign_key: true |
 | list_id              | references | null: false, foreign_key: true |
-| dateTime             | time       | null: false                    |
 | tankno               | string     | null: false                    |
 | density              | float      | null: false                    |
 | alcohol              | float      | null: false                    |
@@ -82,3 +99,10 @@
 ### Association
 - belongs_to :analysis
 - belongs_to :user
+
+# 動作環境
+  Ruby 2.6.5
+  Ruby on Rails 6.0.0
+  AWS
+  Unicorn
+  Nginx
