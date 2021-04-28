@@ -37,7 +37,7 @@
 - 新規製品登録機能
 - 当日生産品リスト化機能
 - 分析値入力機能
-- 検索機能(Ransack)
+- 検索機能(ransack)
 - PDF出力機能(wkhtmltopdf-binary, wicked_pdf)
 - フラッシュメッセージ機能
 - Rspecによるテスト機能
