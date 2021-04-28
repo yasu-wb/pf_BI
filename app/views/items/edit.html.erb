@@ -2,7 +2,7 @@
   <div class="inner">
     <div class="item-pool">
       <div class="item-input">
-        <h2 class="page-heading">新製品登録</h2>
+        <h2 class="page-heading">製品情報編集</h2>
         <%= form_with(model: @item, local: true) do |f| %>
 
           <div class="field">
@@ -26,29 +26,11 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "登録", class: :form__btn %>
+            <%= f.submit "更新", class: :form__btn %>
           </div>
 
           <%= render 'layouts/error_messages', model: f.object %> 
         <% end %>
-      </div>
-
-      <div class="item-index">
-        <h2 class="page-heading">登録済み製品</h2>
-        <div class="all-item">
-          <div class="all-item-title">
-            <a>INコード</a>
-            <a>カテゴリ</a>
-            <a>製品名</a>
-          </div>
-          <% @items.each do |i| %>
-            <%= link_to edit_item_path(i.id), class: "item-list", method: :get do %>
-              <div><%= i.incode %></div>
-              <div><%= i.sub_category.name %></div>
-              <div><%= i.name %></div>
-            <% end %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>

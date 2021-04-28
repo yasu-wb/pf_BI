@@ -109,7 +109,17 @@ p {
   color: #243856;
   margin-bottom: 20px;
 }
-
+.all-item-title {
+  border: solid 1px #e1e2e4;
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  width: 350px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: gray 0px 1px 5px;
+  
+}
 .item-list {
   border: solid 1px #e1e2e4;
   display: flex;
@@ -119,8 +129,12 @@ p {
   padding: 5px;
   margin: 5px;
   box-shadow: gray 0px 1px 5px;
+  text-decoration: none;
 }
-
+.item-list:hover {
+  color: #ffffff;
+  background-color: gray;
+}
 a {
   font-size: 15px;
   text-align: center;
