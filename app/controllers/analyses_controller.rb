@@ -1,7 +1,8 @@
 class AnalysesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lists_today, only: [:index, :create]
-  before_action :find_analysis, only: [:show, :generatepdf]
+  before_action :find_analysis, only: [:show, :generatepdf, :edit, :update]
+
   def index
     @analysis = Analysis.new
   end
@@ -30,6 +31,14 @@ class AnalysesController < ApplicationController
         send_data(pdf)
       end
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @analysis.update(analysis_params)
+    redirect_to analysis_path(@analysis.id), notice: '分析値の編集に成功しました'
   end
 
   def generatepdf

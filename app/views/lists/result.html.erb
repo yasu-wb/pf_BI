@@ -9,16 +9,14 @@
     <% if @results.length !=0 %>
       <% @results.each do |result| %>
         <% if result.analyses.present? %>
-          <div class="item-list">
             <% result.analyses.each do |analysis| %>
-              <%= link_to  analysis_path(analysis.id) do %>
-                <%= analysis.item.incode %>
-                <%= analysis.item.sub_category.name %>
-                <%= analysis.item.name %>
-                <%= analysis.list.date %>
+              <%= link_to analysis_path(analysis.id), class: 'item-list' do %>
+                <div><%= analysis.item.incode %></div>
+                <div><%= analysis.item.sub_category.name %></div>
+                <div><%= analysis.item.name %></div>
+                <div><%= analysis.list.date %></div>
               <% end %>
             <% end %>
-          </div>
         <% end %>
       <% end %>
     <% else %>
