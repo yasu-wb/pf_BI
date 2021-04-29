@@ -9,8 +9,7 @@
             <span>INコード</span>
             <%= @analysis.item.incode %>
           </li>
-          <li class="name">
-            <span>製品名</span>
+          <li class="item-name">
             <%= @analysis.item.name %>
           </li>
           <%= form_with(model: @analysis, local: true) do |f| %>
