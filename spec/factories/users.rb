@@ -6,8 +6,8 @@ FactoryBot.define do
     password = Faker::Internet.password(min_length: 6)
     password { password }
     password_confirmation { password }
-    in_charge1 { Faker::Number.between(from: 1, to: 13) }
-    in_charge2 { Faker::Number.between(from: 1, to: 13) }
-    in_charge3 { Faker::Number.between(from: 1, to: 13) }
+    in_charge1_id { Faker::Number.between(from: 1, to: 17) }
+    in_charge2_id { Faker::Number.between(from: 1, to: 17) }
+    in_charge3_id { Faker::Number.between(from: 1, to: 17) }
   end
 end

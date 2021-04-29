@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_045018) do
+ActiveRecord::Schema.define(version: 2021_04_29_113542) do
 
   create_table "analyses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "list_id", null: false
@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 2021_04_29_045018) do
     t.string "number_id", null: false
     t.string "last_name", null: false
     t.string "first_name", null: false
-    t.integer "in_charge1"
-    t.integer "in_charge2"
-    t.integer "in_charge3"
+    t.integer "in_charge1_id"
+    t.integer "in_charge2_id"
+    t.integer "in_charge3_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
