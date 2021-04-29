@@ -75,5 +75,9 @@
           <div class="pdf-button">
             <%= button_to "分析報告書", generatepdf_analyses_path(format: :pdf, id: @analysis.id) %>
           </div>
+
+          <div class="pdf-button">
+            <%= button_to "編集", edit_analysis_path(@analysis.id), method: :get %>
+          </div>
         </div>
     <div>

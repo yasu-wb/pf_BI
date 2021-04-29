@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :set_items, except: :index
-  before_action :set_item, only: [:edit, :update]
+  before_action :find_item, only: [:edit, :update]
 
   def index
   end
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:incode, :name, :main_category_id, :sub_category_id)
   end
 
-  def set_item
+  def find_item
     @item = Item.find(params[:id])
   end
 

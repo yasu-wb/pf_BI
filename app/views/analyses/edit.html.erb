@@ -1,0 +1,87 @@
+<h1>分析結果</h1>
+    <div class="show-dashboard">
+        <ul class="analysis-card">
+          <li class="date">
+            <span>日付</span>
+            <%= @analysis.list.date %>
+          </li>
+          <li class="incode">
+            <span>INコード</span>
+            <%= @analysis.item.incode %>
+          </li>
+          <li class="name">
+            <span>製品名</span>
+            <%= @analysis.item.name %>
+          </li>
+          <%= form_with(model: @analysis, local: true) do |f| %>
+              
+              <li class="tank-no">
+                <span>タンクNo.</span>
+                <%= f.text_field :tank_no, class:"analysis-input" %>
+              </li>
+              <li class="density">
+                <span>比重</span>
+                <%= f.text_field :density, class:"analysis-input" %>
+              </li>
+              <li class="alcohol">
+                <span>Alcohol</span>
+                <%= f.text_field :alcohol, class:"analysis-input" %>
+              </li>
+              <li class="extract">
+                <span>エキス</span>
+                <%= f.text_field :extract, class:"analysis-input" %>
+              </li>
+              <li class="acid_degree">
+                <span>酸</span>
+                <%= f.text_field :acid_degree, class:"analysis-input" %>
+              </li>
+              <li class="amino_acid">
+                <span>アミノ酸</span>
+                <%= f.text_field :amino_acid, class:"analysis-input" %>
+              </li>
+              <li class=color>
+                <span>OD430nm</span>
+                <%= f.text_field :color, class:"analysis-input" %>
+              </li>
+              <li class="nacl">
+                <span>塩分</span>
+                <%= f.text_field :nacl, class:"analysis-input" %>
+              </li>
+              <li class="turbidity">
+                <span>濁度</span>
+                <%= f.text_field :turbidity, class:"analysis-input" %>
+              </li>
+              <div class="sulfurous_acid">
+                <span>亜硫酸</span>
+                <div class="free_sulfurous_acid">
+                  <span>Free</span>
+                  <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
+                </div>
+                <div class="total_sulfurous_acid">
+                  <span>Total</span>
+                  <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
+                </div>
+              </div>
+              <div class="comment">
+                <span>備考</span>
+                <%= f.text_area :comment, class:"comment-input" %>
+              </div>
+              
+              <div class="btn-contents">
+                <%= f.submit "更新" , class:"insert-btn" %>
+              </div>
+              <%= render 'layouts/error_messages', model: f.object %> 
+            <% end %>
+        </ul>
+
+        <div class="pdf-content">
+          <div class="pdf-description">
+            <p>URLに「.pdf」を入力すると直接PDFのダウンロードが可能です<br>
+                下記のボタンから取引先に提出するPDFを生成できます
+            </p>
+          </div>
+          <div class="pdf-button">
+            <%= button_to "分析報告書", generatepdf_analyses_path(format: :pdf, id: @analysis.id) %>
+          </div>
+        </div>
+    <div>
