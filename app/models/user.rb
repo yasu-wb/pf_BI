@@ -14,7 +14,7 @@ class User < ApplicationRecord
     validates :in_charge1, :in_charge2, :in_charge3, numericality: { other_than: 0, message: '担当を選んでください' }
   end
 
-  validates :number_id, numericality: { only_integer: true, message: 'は半角数字で入力してください' }
+  validates :number_id, numericality: { only_integer: true, message: 'は半角数字で入力してください' }, length: { is: 6, message: 'は6桁で入力してください'}
 
   VALID_PASSWORD_REGEX = /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は半角英数字混合で入力してください' }
