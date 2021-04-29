@@ -1,10 +1,10 @@
-<h2><%= resource_name.to_s.humanize %> 編集</h2>
+<h2>ユーザー情報編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :number_id %><br />
+    <%= f.label :number_id %><em>(6桁半角数字)</em><br />
     <%= f.text_field :number_id, autofocus: true, autocomplete: "number_id" %>
   </div>
 
@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(変更しない場合は空白にしてください)</i><br />
+    <%= f.label :password %> <em>(変更しない場合は空白にしてください)</em><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -31,13 +31,28 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :in_charge1, "担当１" %><br />
+    <%= f.collection_select(:in_charge1, SubCategory.all, :id, :name, {}, {class:"category-select"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :in_charge2, "担当２" %><br />
+    <%= f.collection_select(:in_charge2, SubCategory.all, :id, :name, {}, {class:"category-select"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :in_charge3, "担当３" %><br />
+    <%= f.collection_select(:in_charge3, SubCategory.all, :id, :name, {}, {class:"category-select"}) %>
+  </div>
+
   <div class="actions">
     <%= f.submit "更新" %>
   </div>
 <% end %>
 
-<h3>アカウント情報の変更をキャンセルする</h3>
+<h3>アカウント情報を削除する</h3>
 
-<p><%= button_to "キャンセル", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete %></p>
 
 <%= link_to "戻る", :back %>

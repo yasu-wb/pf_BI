@@ -6,7 +6,7 @@
         <%= form_with(model: @item, local: true) do |f| %>
 
           <div class="field">
-            <%= f.label :incode, "INコード" %><br />
+            <%= f.label :incode, "INコード" %><em>（半角数字6桁）</em><br />
             <%= f.text_field :incode %>
           </div>
 
