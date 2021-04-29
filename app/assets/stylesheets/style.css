@@ -192,7 +192,9 @@ li {
   width: 200px;
   height: 40px;
 }
-
+.item-name {
+  justify-content: center;
+}
 .sulfurous_acid {
   border: solid 1px #e1e2e4;
   padding: 5px;
