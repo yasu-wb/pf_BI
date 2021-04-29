@@ -61,20 +61,20 @@ https://docs.google.com/spreadsheets/d/1z4aXm-Gv8Rccz6zwAibyUP6e90YPUK5DqEL8jboQ
 | first_name         | string  | null: false               |
 | number_id          | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
-| In_charge1         | integer |                           |
-| In_charge2         | integer |                           |
-| In_charge3         | integer |                           |
+| in_charge1_id      | integer |                           |
+| in_charge2_id      | integer |                           |
+| in_charge3_id      | integer |                           |
 
 ### Association
 - has_many :notifications
 
 ## itemsテーブル
-| Column        | Type    | Options                   |
-| ------------- | ------- | ------------------------- |
-| incode        | integer | null: false, unique: true |
-| name          | string  | null: false               |
-| main_category | integer | null: false               |
-| sub_category  | integer | null: false               |
+| Column           | Type    | Options                   |
+| ---------------- | ------- | ------------------------- |
+| incode           | string  | null: false, unique: true |
+| name             | string  | null: false               |
+| main_category_id | integer | null: false               |
+| sub_category_id  | integer | null: false               |
 
 ### Association
 - has_many :analyses
@@ -94,7 +94,7 @@ https://docs.google.com/spreadsheets/d/1z4aXm-Gv8Rccz6zwAibyUP6e90YPUK5DqEL8jboQ
 ## listsテーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| incode        | integer    | null: false                    |
+| incode        | string     | null: false                    |
 | date          | date       | null: false                    |
 | item_id       | references | null: false, foreign_key: true |
 
