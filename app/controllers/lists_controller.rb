@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!, only: :create
   before_action :set_list, except: [:search, :result]
   before_action :set_lists_today, only: [:index, :create]
   before_action :search_lists, only: [:search, :result]
