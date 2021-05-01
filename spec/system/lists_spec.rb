@@ -8,11 +8,7 @@ RSpec.describe "Lists", type: :system do
 
   context 'リストに登録できる時' do
     it 'ログインしたユーザーは登録できる' do
-      visit new_user_session_path
-      fill_in 'ID', with: @user.number_id
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       visit lists_path
       fill_in 'INコード', with: @item.incode
       find('input[name="commit"]').click
@@ -41,11 +37,7 @@ RSpec.describe "Lists", type: :system do
 
   context 'リストに登録できない時' do
     it 'ログインユーザーでも製品が存在しなければ登録できない' do
-      visit new_user_session_path
-      fill_in 'ID', with: @user.number_id
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       visit lists_path
       fill_in 'INコード', with: @item.incode
       find('input[name="commit"]').click

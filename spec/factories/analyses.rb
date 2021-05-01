@@ -9,8 +9,10 @@ FactoryBot.define do
     color {Faker::Number.between(from: 0.0, to: 1.5)}
     nacl {Faker::Number.between(from: 0.0, to: 15.0)}
     turbidity {Faker::Number.between(from: 0.0, to: 30.0)}
-    free_sulflous_acid {Faker::Number.between(from: 0.0, to: 100.0)}
-    total_sulflous_acid {Faker::Number.between(from: 0.0, to: 400.0)}
+    free_sulfurous_acid {Faker::Number.between(from: 0.0, to: 100.0)}
+    total_sulfurous_acid {Faker::Number.between(from: 0.0, to: 400.0)}
     comment {Faker::Lorem.sentence}
+    association :item
+    association :list
   end
 end

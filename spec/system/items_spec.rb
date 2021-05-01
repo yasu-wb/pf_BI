@@ -8,11 +8,7 @@ RSpec.describe "Items", type: :system do
 
   context '新製品登録ができるとき'do
     it 'ログインしたユーザーは新規投稿できる' do
-      visit new_user_session_path
-      fill_in 'ID', with: @user.number_id
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       expect(page).to have_content('新製品登録')
       visit new_item_path
       fill_in 'INコード', with: @item.incode
@@ -45,11 +41,7 @@ RSpec.describe '製品情報編集', type: :system do
   end
   context '製品編集ができるとき' do
     it 'ログインしたユーザーは製品の編集ができる' do
-      visit new_user_session_path
-      fill_in 'ID', with: @user.number_id
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       visit new_item_path
       expect(page).to have_link @item1.name, href: edit_item_path(@item1)
       visit edit_item_path(@item1)
