@@ -4,17 +4,12 @@ RSpec.describe "Analyses", type: :system do
   before do
     @user = FactoryBot.create(:user)
     @item = FactoryBot.create(:item)
-    @list = FactoryBot.create(:list, incode: @item.incode)
     @analysis = FactoryBot.build(:analysis)
   end
 
   context '分析値の入力ができる時' do
     it 'ログインしたユーザーは登録できる' do
-      visit new_user_session_path
-      fill_in 'ID', with: @user.number_id
-      fill_in 'パスワード', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       visit lists_path
       fill_in 'INコード', with: @item.incode
       find('input[name="commit"]').click
@@ -30,6 +25,13 @@ RSpec.describe "Analyses", type: :system do
       expect(current_path).to eq(analyses_path)
       expect(page).to have_content('分析値の入力に成功しました')
       expect(page).to have_content(@analysis.tank_no)
+    end
+  end
+  context '分析値入力できないとき'do
+    it 'ログインしていないと分析値入力ページに遷移できない' do
+      visit root_path
+      visit analyses_path
+      expect(current_path).to eq(new_user_session_path)
     end
   end
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :list do
-    incode { Faker::Number.number(digits: 6) }
-    date { Date.today }
     association :item
+    incode { item.incode }
+    date { Date.today }
   end
 end
