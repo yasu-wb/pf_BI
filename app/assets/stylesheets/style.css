@@ -114,7 +114,7 @@ p {
   display: flex;
   justify-content: space-between;
   height: 35px;
-  width: 350px;
+  width: 400px;
   padding: 5px;
   margin: 5px;
   box-shadow: gray 0px 1px 5px;
@@ -125,7 +125,7 @@ p {
   display: flex;
   justify-content: space-between;
   height: 35px;
-  width: 350px;
+  width: 400px;
   padding: 5px;
   margin: 5px;
   box-shadow: gray 0px 1px 5px;
