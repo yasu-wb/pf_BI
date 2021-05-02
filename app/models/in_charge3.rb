@@ -1,4 +1,4 @@
-class SubCategory < ActiveHash::Base
+class InCharge3 < ActiveHash::Base
   self.data = [
     { id: 0, name: '--' },
     { id: 1, name: '調味料' },
@@ -21,5 +21,4 @@ class SubCategory < ActiveHash::Base
   ]
   include ActiveHash::Associations
   has_many :users
-  has_many :items
 end

@@ -8,6 +8,11 @@ RSpec.describe User, type: :model do
     it '全ての値が正しく入力される時' do
       expect(@user).to be_valid
     end
+
+    it 'IDが0から始まる6桁の数字でも登録できる' do
+      @user.number_id = "023456"
+      expect(@user).to be_valid
+    end
   end
 
   context 'ユーザー新規登録ができない時' do
@@ -22,6 +27,18 @@ RSpec.describe User, type: :model do
       another_user = FactoryBot.build(:user, number_id: @user.number_id)
       another_user.valid?
       expect(another_user.errors.full_messages).to include('IDはすでに存在します')
+    end
+
+    it 'IDが6桁未満の時' do
+      @user.number_id = 12345
+      @user.valid?
+      expect(@user.errors.full_messages).to include('IDは6桁で入力してください')
+    end
+
+    it 'IDが7桁以上の時' do
+      @user.number_id = 1234567
+      @user.valid?
+      expect(@user.errors.full_messages).to include('IDは6桁で入力してください')
     end
 
     it 'passwordが空では登録ができないこと' do
