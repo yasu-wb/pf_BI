@@ -241,7 +241,25 @@ li {
   display: flex;
   justify-content: space-around;
 }
-
+.item-list-result {
+  border: solid 1px #e1e2e4;
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  width: 500px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: gray 0px 1px 5px;
+  text-decoration: none;
+}
+.item-list-result:hover {
+  color: #ffffff;
+  background-color: gray;
+}
+a {
+  font-size: 15px;
+  text-align: center;
+}
 .pdf-description {
   border: solid 1px #e1e2e4;
   background-color: #fff;

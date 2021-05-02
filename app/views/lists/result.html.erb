@@ -10,7 +10,7 @@
       <% @results.each do |result| %>
         <% if result.analyses.present? %>
             <% result.analyses.each do |analysis| %>
-              <%= link_to analysis_path(analysis.id), class: 'item-list' do %>
+              <%= link_to analysis_path(analysis.id), class: 'item-list-result' do %>
                 <div><%= analysis.item.incode %></div>
                 <div><%= analysis.item.sub_category.name %></div>
                 <div><%= analysis.item.name %></div>
