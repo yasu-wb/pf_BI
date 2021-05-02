@@ -33,5 +33,23 @@ RSpec.describe "Analyses", type: :system do
       visit analyses_path
       expect(current_path).to eq(new_user_session_path)
     end
+
+    it '必須入力項目が空だと入力できない' do
+      sign_in(@user)
+      visit lists_path
+      fill_in 'INコード', with: @item.incode
+      find('input[name="commit"]').click
+      expect(current_path).to eq(lists_path)
+      expect(page).to have_content('当日生産リストに追加しました')
+      expect(page).to have_content(@item.incode)
+      visit analyses_path
+      fill_in 'タンクNo.', with: nil
+      fill_in '比重', with: nil
+      fill_in 'Alcohol', with: nil
+      fill_in 'エキス', with: nil
+      find('input[name="commit"]').click
+      expect(current_path).to eq(analyses_path)
+      expect(page).to have_content('分析値の入力に失敗しました')
+    end
   end
 end

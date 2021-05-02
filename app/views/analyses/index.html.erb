@@ -14,54 +14,54 @@
             <%= form_with(model: @analysis, local: true) do |f| %>
               
               <li class="tank-no">
-                <span>タンクNo.</span>
+                <%= f.label :tank_no, "タンクNo." %>
                 <%= f.text_field :tank_no, class:"analysis-input" %>
               </li>
               <li class="density">
-                <span>比重</span>
+                <%= f.label :density, "比重" %>
                 <%= f.text_field :density, class:"analysis-input" %>
               </li>
               <li class="alcohol">
-                <span>Alcohol</span>
+                <%= f.label :alcohol, "Alcohol" %>
                 <%= f.text_field :alcohol, class:"analysis-input" %>
               </li>
               <li class="extract">
-                <span>エキス</span>
+                <%= f.label :extract, "エキス" %>
                 <%= f.text_field :extract, class:"analysis-input" %>
               </li>
               <li class="acid_degree">
-                <span>酸</span>
+                <%= f.label :acid_degree, "酸" %>
                 <%= f.text_field :acid_degree, class:"analysis-input" %>
               </li>
               <li class="amino_acid">
-                <span>アミノ酸</span>
+                <%= f.label :amino_acid, "アミノ酸" %>
                 <%= f.text_field :amino_acid, class:"analysis-input" %>
               </li>
               <li class=color>
-                <span>OD430nm</span>
+                <%= f.label :color, "OD" %>
                 <%= f.text_field :color, class:"analysis-input" %>
               </li>
               <li class="nacl">
-                <span>塩分</span>
+                <%= f.label :nacl, "塩分" %>
                 <%= f.text_field :nacl, class:"analysis-input" %>
               </li>
               <li class="turbidity">
-                <span>濁度</span>
+                <%= f.label :turbidity, "濁度" %>
                 <%= f.text_field :turbidity, class:"analysis-input" %>
               </li>
               <div class="sulfurous_acid">
                 <span>亜硫酸</span>
                 <div class="free_sulfurous_acid">
-                  <span>Free</span>
+                  <%= f.label :free_sulfurous_acid, "Free" %>
                   <%= f.text_field :free_sulfurous_acid, class:"analysis-input" %>
                 </div>
                 <div class="total_sulfurous_acid">
-                  <span>Total</span>
+                  <%= f.label :total_sulfurous_acid, "Total" %>
                   <%= f.text_field :total_sulfurous_acid, class:"analysis-input" %>
                 </div>
               </div>
               <div class="comment">
-                <span>備考</span>
+                <%= f.label :comment, "備考" %>
                 <%= f.text_area :comment, class:"comment-input" %>
               </div>
               <div class="foreign_key_id">
