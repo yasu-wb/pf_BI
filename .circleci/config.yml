@@ -3,14 +3,15 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          RAILS_ENV: 'test'
+          BUNDLER_VERSION: 2.1.4
       - image: circleci/mysql:5.6.50
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          MYSQL_ROOT_HOST: '%'
-          RAILS_ENV: 'test'
-          BUNDLER_VERSION: 2.1.4
-    
-
+          MYSQL_USER: root
+          MYSQL_DB: pf_BI_test
+          
     working_directory: ~/pf_BI
     steps:
       - checkout
