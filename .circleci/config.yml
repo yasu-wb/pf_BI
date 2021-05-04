@@ -11,7 +11,7 @@ jobs:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           MYSQL_USER: root
           MYSQL_DB: pf_BI_test
-          
+
     working_directory: ~/pf_BI
     steps:
       - checkout
@@ -46,7 +46,7 @@ jobs:
 
       # run tests!
       - run:
-          name: run tests
+          name: Rspec
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
