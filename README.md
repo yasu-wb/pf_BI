@@ -11,7 +11,7 @@
 - HTML/CSS
 - Ruby 2.6.5
 - Ruby on Rails 6.0.0
-- MySQL 0.5.3
+- MySQL 5.6.50
 - AWS(EC2)
 - Unicorn 5.4.1
 - Nginx 1.18.0
