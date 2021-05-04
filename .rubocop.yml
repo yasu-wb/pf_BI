@@ -81,4 +81,3 @@ Style/FrozenStringLiteralComment:
 Naming/MethodParameterName:
  MinNameLength: 1
 
-NewCops: enable
