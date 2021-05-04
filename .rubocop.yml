@@ -18,7 +18,6 @@ Layout/LineLength:
    - "Rakefile"
    - "spec/rails_helper.rb"
    - "spec/spec_helper.rb"
-   - "app/controllers/lists_controller.rb"
 
 
 # RSpecは1つのブロックあたりの行数が多くなるため、チェックの除外から外す
