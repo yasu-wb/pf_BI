@@ -42,15 +42,14 @@
 - フラッシュメッセージ機能
 - Rspecによるテスト機能
 - Rubocopによる静的コード解析
-- Capistranoによる自動デプロイ
+- CircleCIによる自動CI/CDパイプライン構築
 
 https://docs.google.com/spreadsheets/d/1z4aXm-Gv8Rccz6zwAibyUP6e90YPUK5DqEL8jboQw54/edit?usp=sharing
 
 # 実装予定
-- セキュリティー対策
+- セキュリティー対策(SSL化)
 - 通知機能
 - 非同期通信
-- CircleCIによる自動CI/CDパイプライン構築
 - Dockerによる開発環境の完全コンテナ化
 
 # データベース設計
