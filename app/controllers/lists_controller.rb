@@ -11,9 +11,9 @@ class ListsController < ApplicationController
   end
 
   def create
-    if @item = Item.find_by(incode: params[:list][:incode])
-      @list = List.new(list_params)
-      @list.save
+    @item = Item.find_by(incode: params[:list][:incode])
+    if @item.present?
+      @list = List.create(list_params)
       redirect_to lists_path, notice: '当日生産リストに追加しました'
     else
       flash.now[:alert] = 'INコードが見つかりません'
