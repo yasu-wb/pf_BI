@@ -43,8 +43,6 @@ jobs:
           name: Rubocop
           command: bundle exec rubocop -a
 
-
-      # run tests!
       - run:
           name: Rspec
           command: |
